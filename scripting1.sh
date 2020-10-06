@@ -6,6 +6,9 @@
 # lecture 5.1 comments 
 # date 7/8/2020
 
+#title
+title="Scripting 1"
+
 #functions
 
 # brief Calculates the difference between today and 8/31/2020 and reports
@@ -60,7 +63,7 @@ getusers()
   echo $USERS
 }
 
-echo "Welcome to CSI230"
+echo "Welcome to CSI230: " $title
 
 systeminfo
 storagespace
