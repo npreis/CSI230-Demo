@@ -23,5 +23,8 @@ echo "IP Address" $(hostname -I)
 echo "CentOS Version"
 cat /etc/redhat-release
 echo "Logged on Users"
+
+echo "Storage Space Data"
+echo $(df -h)
 w
 daystilschool
