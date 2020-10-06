@@ -32,6 +32,14 @@ storagespace()
   echo $STORAGESPACE
 }
 
+#Checks disk information
+diskinfo()
+{
+  DISKINFO=$(lsblk)
+  echo "Disk Information:"
+  echo $DISKINFO
+}
+
 echo "Welcome to CSI230"
 echo "Kernel Version" $(uname -a)
 echo "CentOS Version"
