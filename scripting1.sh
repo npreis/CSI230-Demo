@@ -17,6 +17,18 @@ daystilschool()
   echo $((($DATESCHOOLSTARTS-$DATETODAY)/86400)) days til school starts
 }
 
+#Basic System Information
+systeminfo()
+{
+  DISTRIBUTION=$(lsb_release -a)
+  KERNELVERSION=$(uname -a)
+  CPUARCHITECTURE=$(lscpu | awk '/Architecture/ {print}')
+
+  echo "Linux Distribution: " $DISTRIBUTION
+  echo "Kernel Version: " $KERNELVERSION
+  echo $CPUARCHITECTURE
+}
+
 #Gets the system's IP address
 networkinfo()
 {
@@ -46,7 +58,5 @@ echo "CentOS Version"
 cat /etc/redhat-release
 echo "Logged on Users"
 
-echo "Storage Space Data"
-echo $(df -h)
 w
 daystilschool
