@@ -17,9 +17,23 @@ daystilschool()
   echo $((($DATESCHOOLSTARTS-$DATETODAY)/86400)) days til school starts
 }
 
+#Gets the system's IP address
+networkinfo()
+{
+  IPADDRESS=$(hostname -I)
+  echo "IP Address: " $IPADDRESS
+}
+
+#Gets the amount of available storage space
+storagespace()
+{
+  STORAGESPACE=$(df -h)
+  echo "Free Storage Space:"
+  echo $STORAGESPACE
+}
+
 echo "Welcome to CSI230"
 echo "Kernel Version" $(uname -a)
-echo "IP Address" $(hostname -I)
 echo "CentOS Version"
 cat /etc/redhat-release
 echo "Logged on Users"
