@@ -61,10 +61,9 @@ getusers()
 }
 
 echo "Welcome to CSI230"
-echo "Kernel Version" $(uname -a)
-echo "CentOS Version"
-cat /etc/redhat-release
-echo "Logged on Users"
 
-w
-daystilschool
+systeminfo
+storagespace
+diskinfo
+getusers
+networkinfo
