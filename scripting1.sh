@@ -19,6 +19,7 @@ daystilschool()
 
 echo "Welcome to CSI230"
 echo "Kernel Version" $(uname -a)
+echo "IP Address" $(hostname -I)
 echo "CentOS Version"
 cat /etc/redhat-release
 echo "Logged on Users"
