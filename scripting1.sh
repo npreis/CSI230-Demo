@@ -42,7 +42,7 @@ networkinfo()
 #Gets the amount of available storage space
 storagespace()
 {
-  STORAGESPACE=$(df -h)
+  STORAGESPACE=$(df -h -l)
   echo "Free Storage Space:"
   echo $STORAGESPACE
 }
@@ -63,6 +63,13 @@ getusers()
   echo $USERS
 }
 
+#Gets the current date and time
+dateandtime()
+{
+  DATEANDTIME=$(date)
+  echo "Date and Time: " $DATEANDTIME
+}
+
 echo "Welcome to CSI230: " $title
 
 systeminfo
@@ -70,3 +77,4 @@ storagespace
 diskinfo
 getusers
 networkinfo
+dateandtime
