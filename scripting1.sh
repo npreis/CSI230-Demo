@@ -52,6 +52,14 @@ diskinfo()
   echo $DISKINFO
 }
 
+#Gets all users on this system
+getusers()
+{
+  USERS=$(cat /etc/passwd | grep bash | cut -d ":" -f 1 | sort)
+  echo "All Users In Order:"
+  echo $USERS
+}
+
 echo "Welcome to CSI230"
 echo "Kernel Version" $(uname -a)
 echo "CentOS Version"
