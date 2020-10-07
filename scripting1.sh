@@ -11,13 +11,13 @@ title="Scripting 1"
 
 #functions
 
-# brief Calculates the difference between today and 8/31/2020 and reports
-# the number of days until the Fall Semester Begins
-daystilschool()
+#Checks to see if user is root
+isroot()
 {
-  DATETODAY=$(date -d "$1" +%s)
-  DATESCHOOLSTARTS=$(date -d "8/31/2020" +%s)
-  echo $((($DATESCHOOLSTARTS-$DATETODAY)/86400)) days til school starts
+  if [ "$(id -u)" != "0"  ]; then
+    echo "Must run in root."
+    exit
+  fi
 }
 
 #Basic System Information
@@ -70,6 +70,14 @@ dateandtime()
   echo "Date and Time: " $DATEANDTIME
 }
 
+#Gets current user
+getcurrentuser()
+{
+  CURRENTUSER=$(whoami)
+  echo "Current User: " $CURRENTUSER
+}
+
+isroot
 echo "Welcome to CSI230: " $title
 
 systeminfo
@@ -78,3 +86,4 @@ diskinfo
 getusers
 networkinfo
 dateandtime
+getcurrentuser
