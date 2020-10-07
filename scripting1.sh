@@ -95,7 +95,7 @@ Current User:$CURRENTUSER
 EOF
 }
 
-#isroot
+isroot
 echo "Welcome to CSI230: " $title
 
 systeminfo
