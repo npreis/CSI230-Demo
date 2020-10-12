@@ -9,12 +9,12 @@ default='\33[0m'
 read -p "Select a color (yellow or purple): " color
 color=${color^^}
 
-#if [ -z ${color} ]; then
-#  echo "There is no color."
-#  exit 1
-#fi
-
 case $color in
+     "YELLOW")
+       selected_color=$yellow
+       echo -e "${selected_color}Your selected color is ${color}"
+       exit 0
+       ;;
      "")
        echo "You didn't enter a valid input."
        exit 1
