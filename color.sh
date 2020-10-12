@@ -12,8 +12,12 @@ color=${color^^}
 case $color in
      "YELLOW")
        selected_color=$yellow
-       echo -e "${selected_color}Your selected color is ${color}"
+       echo -e "${selected_color}Your selected color is ${color}."
        exit 0
+       ;;
+     "PURPLE")
+       echo "Purple is not a valid color."
+       exit 1
        ;;
      "")
        echo "You didn't enter a valid input."
