@@ -6,6 +6,7 @@ usage()
   exit 1
 }
 
+#Checks to see if file and casing is valid
 while getopts ":f:c:" options;
 do
   case "${options}" in
@@ -31,6 +32,7 @@ do
   esac
 done
 
+#Reads through file, and prints everything in upper or lowercase
 while read line
 do
   if [ ${c} == "U" ]; then

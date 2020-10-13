@@ -1,5 +1,6 @@
 #!/bin/bash
 
+#Checks to see if the file is valid
 while getopts ":f:" options;
 do
   case "${options}" in
@@ -16,10 +17,11 @@ do
   esac
 done
 
+#Reads through each host, and prints out a valid ip address
 while read line
 do
   if [ ${f} == "hosts.txt" ]; then
-    for h in champlain.edu uvm.edu umd.edu abcdefg.hi
+    for h in $line
     do
       out=$(host -W1 -t A $h)
       if [ $? -eq 0 ]; then
@@ -31,6 +33,10 @@ do
         fi
       fi
     done
+  #If the file isn't hosts.txt, exit the file
+  else
+    echo "Incorrect file."
+    exit 1
   fi
 done < $f
 
