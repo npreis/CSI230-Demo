@@ -23,11 +23,11 @@ do
     do
       out=$(host -W1 -t A $h)
       if [ $? -eq 0 ]; then
-        if [ out == "92.242.140.21" ] ; then
-          echo "{h} - not found"
+        ip=$(echo $out | cut -d " " -f 4)
+        if [[ $ip =~ ^92.242.140.21$ ]]; then
+          echo "${h} - not found."
         else
-          ip=$(echo $out | cut -d " " -f 4)
-          echo ${h} - $ip
+           echo ${h} - $ip
         fi
       fi
     done
