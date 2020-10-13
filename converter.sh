@@ -11,6 +11,11 @@ do
   case "${options}" in
     f)
       f=${OPTARG}
+      if [[ -f "$f" ]]; then
+        echo "Yay!"
+      else
+        usage
+      fi
       ;;
     c)
       c=${OPTARG}
