@@ -6,4 +6,23 @@ usage()
   exit 1
 }
 
-usage
+while getopts ":f:c:" options;
+do
+  case "${options}" in
+    f)
+      f=${OPTARG}
+      ;;
+    c)
+      c=${OPTARG}
+      if [[ ${c} == "U" || ${c} == "L" ]]; then
+        echo "${f} - ${c}"
+      else
+        usage
+      fi
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
+exit 0
