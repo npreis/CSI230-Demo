@@ -25,4 +25,14 @@ do
       ;;
   esac
 done
+
+while read line
+do
+  if [ ${c} == "U" ]; then
+    echo $line | tr [:lower:] [:upper:]
+  else
+    echo $line | tr [:upper:] [:lower:]
+  fi
+done < $f
+
 exit 0
