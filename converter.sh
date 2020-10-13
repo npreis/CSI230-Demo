@@ -12,7 +12,7 @@ do
     f)
       f=${OPTARG}
       if [[ -f "$f" ]]; then
-        echo "Yay!"
+        echo "This is a valid file"
       else
         usage
       fi
