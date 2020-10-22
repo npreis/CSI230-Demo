@@ -37,3 +37,10 @@ do
       ;;
   esac
 done
+
+randpasswd()
+{
+  while read line
+  do
+    
+}
