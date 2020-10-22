@@ -1,0 +1,3 @@
+bilbo.baggins@shire.net
+gandalf.gray@shire.net
+sauron@mordor.com 
