@@ -10,9 +10,30 @@
 isRoot()
 {
   if [ "$(id -u)" != root ]; then
-    cat << EOF
-    Must run as root user!
-    EOF
+    echo "Must run as root user!"
     exit
   fi
 }
+
+usage()
+{
+  echo "$0 usage: [-f input file]"
+  exit 1
+}
+
+while getopts ":f:" options;
+do
+  case "${options}" in
+    f)
+      f=${OPTARG}
+      if [[ -f "$f" ]]; then
+        echo "Valid file"
+      else
+        usage
+      fi
+      ;;
+    *)
+      usage
+      ;;
+  esac
+done
