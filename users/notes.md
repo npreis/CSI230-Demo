@@ -15,3 +15,5 @@
 * 10:13pm: Checked to see if user is in /etc/passwd
 
 * 10:31pm: Made it so password can be changed. Source: https://www.howtoforge.com/linux-chpasswd-command/
+
+* 10:50pm: Fixed an error.
