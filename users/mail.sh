@@ -38,6 +38,18 @@ do
   esac
 done
 
+getuser()
+{
+  while read line
+  do
+    for h in $line
+    do
+      users=$(echo ${h} | cut -d "@" -f 1)
+      echo $users
+    done
+  done < $f
+}
+
 randpasswd()
 {
   while read line
@@ -50,7 +62,7 @@ randpasswd()
   done < $f
 }
 
-randpasswd
-#echo $(openssl rand -hex 6)
+getuser
+#randpasswd
 
 exit 0
