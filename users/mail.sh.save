@@ -44,13 +44,11 @@ randpasswd()
   do
     for h in $line
     do
-      passwd=$(openssl rand -hex 6)
-      echo $passwd
+      passwd=$( 6)
+      echo ${h} -  ${passwd}
     done
-  done < $f
+  done
 }
 
 randpasswd
 #echo $(openssl rand -hex 6)
-
-exit 0
