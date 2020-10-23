@@ -63,6 +63,6 @@ randpasswd()
 }
 
 getuser
-#randpasswd
+randpasswd
 
 exit 0
