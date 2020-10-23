@@ -59,8 +59,8 @@ sendMail()
         chage -d 0 $users
       fi
 
-      echo "An account on PopOS was created for you! Username: $user - Password: $paswrd" > message.txt
-      $(mutt -s "$title" nicholas.preis@mymail.champlain.edu < message.txt)
+      echo An account on PopOS was created for you! Username: $users - Password: $passwd > message.txt
+      $(mail -s "$title" nicholas.preis@mymail.champlain.edu < message.txt)
 
     done
   done < $f
