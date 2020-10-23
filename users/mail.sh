@@ -15,12 +15,15 @@ isRoot()
   fi
 }
 isRoot
+
+#Exit statement if there's no valid file
 usage()
 {
   echo "$0 usage: [-f input file]"
   exit 1
 }
 
+#checks if a file is valid
 while getopts ":f:" options;
 do
   case "${options}" in
@@ -51,17 +54,22 @@ sendMail()
 
       #Checks if user exists
       if [ "$(cat /etc/passwd) | cut -d ':' -f 1 | grep $user)" = "$users" ]; then
+
+        #If a user exists, change the password.
         title="XYZ PopOS Password Updated"
-        echo $users 's password has been changed. > message.txt
+        echo $users s password has been changed. > message.txt
         $(echo "$users:$passwd" | chpasswd)
       else
+
+        #Otherwise, create a new user, and force a password change.
         title="XYZ PopOS New User"
         echo An account on PopOS was created for you! Username: $users - Password: $passwd > message.txt
         useradd -m -G CSI230 -s /bin/bash $users -p passwd
         chage -d 0 $users
       fi
 
-      $(mutt -s "$title" nicholas.preis < message.txt)
+      #Sends the email.
+      $(mutt -s "$title" nicholas.preis@mymail.champlain.edu < message.txt)
 
     done
   done < $f
