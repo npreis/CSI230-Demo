@@ -52,15 +52,16 @@ sendMail()
       #Checks if user exists
       if [ "$(cat /etc/passwd) | cut -d ':' -f 1 | grep $user)" = "$users" ]; then
         title="XYZ PopOS Password Updated"
+        echo $users 's password has been changed. > message.txt
         $(echo "$users:$passwd" | chpasswd)
       else
         title="XYZ PopOS New User"
+        echo An account on PopOS was created for you! Username: $users - Password: $passwd > message.txt
         useradd -m -G CSI230 -s /bin/bash $users -p passwd
         chage -d 0 $users
       fi
 
-      echo An account on PopOS was created for you! Username: $users - Password: $passwd > message.txt
-      $(mail -s "$title" nicholas.preis@mymail.champlain.edu < message.txt)
+      $(mutt -s "$title" nicholas.preis < message.txt)
 
     done
   done < $f
