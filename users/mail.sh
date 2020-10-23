@@ -11,7 +11,7 @@ isRoot()
 {
   if [ "$(id -u)" != root ]; then
     echo "Must run as root user!"
-    exit
+    exit 1
   fi
 }
 
@@ -38,31 +38,18 @@ do
   esac
 done
 
-getuser()
+sendmail()
 {
   while read line
   do
     for h in $line
     do
-      users=$(echo ${h} | cut -d "@" -f 1)
-      echo $users
-    done
-  done < $f
-}
-
-randpasswd()
-{
-  while read line
-  do
-    for h in $line
-    do
+      users=$(echo ${h}|cut -d "@" -f 1)
       passwd=$(openssl rand -hex 6)
-      echo $passwd
+      echo $users - $passwd
     done
   done < $f
 }
-
-getuser
-randpasswd
+sendmail
 
 exit 0

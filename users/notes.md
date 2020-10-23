@@ -9,3 +9,5 @@
 * 8:38pm: Made a function that gets the users emails before the "@". Source: https://www.geeksforgeeks.org/cut-command-linux-examples/
 
 * 9:50pm: Made a nuke users function. Source: https://www.geeksforgeeks.org/userdel-command-in-linux-with-examples/#:~:text=userdel%20command%20in%20Linux%20system,utility%20for%20removing%20the%20users.
+
+* 10:00pm: Combined user and password functions.
