@@ -14,7 +14,7 @@ isRoot()
     exit 1
   fi
 }
-
+isRoot
 usage()
 {
   echo "$0 usage: [-f input file]"
@@ -57,7 +57,11 @@ sendMail()
         title="XYZ PopOS New User"
         useradd -m -G CSI230 -s /bin/bash $users -p passwd
       fi
-    done < $f
+
+      echo "An account on PopOS was created for you! Username: $user - Password: $paswrd" > message.txt
+      $(mutt -s "$title" $user@gmail.com < message.txt)
+
+    done
   done < $f
 }
 sendMail
