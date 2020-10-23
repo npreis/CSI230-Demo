@@ -17,3 +17,5 @@
 * 10:31pm: Made it so password can be changed. Source: https://www.howtoforge.com/linux-chpasswd-command/
 
 * 10:50pm: Fixed an error.
+
+* 11:04pm: Added adduser to code. Source: https://linuxize.com/post/how-to-create-users-in-linux-using-the-useradd-command/

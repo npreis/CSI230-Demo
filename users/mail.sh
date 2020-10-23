@@ -50,13 +50,12 @@ sendMail()
       echo $users - $passwd
 
       #Checks if user exists
-      if [ "$(cat /etc/passwd)" = "$users" ]; then
+      if [ "$(cat /etc/passwd) | cut -d ':' -f 1 | grep $user)" = "$users" ]; then
         title="XYZ PopOS Password Updated"
-        #$(echo "$users:$passwd" | chpasswd)
-        echo $title
+        $(echo "$users:$passwd" | chpasswd)
       else
         title="XYZ PopOS New User"
-        echo $title
+        useradd -m -G CSI230 -s /bin/bash $users -p passwd
       fi
     done < $f
   done < $f
