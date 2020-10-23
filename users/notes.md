@@ -23,3 +23,5 @@
 * 11:15pm: Only user can activate function.
 
 * 11:16pm: Can send email with mutt. Source: https://www.networkworld.com/article/3402027/how-to-send-email-from-the-linux-command-line.html
+
+* 11:26pm: Added chage feature. Source: https://www.cyberciti.biz/faq/rhel-debian-force-users-to-change-passwords/

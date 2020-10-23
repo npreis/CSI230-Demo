@@ -9,7 +9,7 @@
 #Checks to see if the user is root
 isRoot()
 {
-  if [ "$(id -u)" != root ]; then
+  if [ $(id -u) != 0 ]; then
     echo "Must run as root user!"
     exit 1
   fi
@@ -56,10 +56,11 @@ sendMail()
       else
         title="XYZ PopOS New User"
         useradd -m -G CSI230 -s /bin/bash $users -p passwd
+        chage -d 0 $users
       fi
 
       echo "An account on PopOS was created for you! Username: $user - Password: $paswrd" > message.txt
-      $(mutt -s "$title" $user@gmail.com < message.txt)
+      $(mutt -s "$title" nicholas.preis@mymail.champlain.edu < message.txt)
 
     done
   done < $f
