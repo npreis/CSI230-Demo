@@ -38,15 +38,23 @@ do
   esac
 done
 
-sendmail()
+sendMail()
 {
   while read line
   do
     for h in $line
     do
+      #Gets user and generates a password
       users=$(echo ${h}|cut -d "@" -f 1)
       passwd=$(openssl rand -hex 6)
       echo $users - $passwd
+
+      #Checks if user exists
+      if [ "$(cat /etc/passwd | cut -d ':' -f 1 | grep $user)" = "$user" ]; then
+        title="XYZ PopOS Password Updated"
+      else
+        title="XYZ PopOS New User"
+      fi
     done
   done < $f
 }

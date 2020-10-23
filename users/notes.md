@@ -11,3 +11,5 @@
 * 9:50pm: Made a nuke users function. Source: https://www.geeksforgeeks.org/userdel-command-in-linux-with-examples/#:~:text=userdel%20command%20in%20Linux%20system,utility%20for%20removing%20the%20users.
 
 * 10:00pm: Combined user and password functions.
+
+* 10:13pm: Checked to see if user is in /etc/passwd
