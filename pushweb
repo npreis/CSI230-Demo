@@ -1,0 +1,36 @@
+#!/bin/bash
+
+# File: push.sh
+# Brief: Used to push apache content to a remote server using rsync
+# Author: nicholas_preis
+# Lab 9.1: Scheduled Tasks
+# Date: 1 November, 2020
+
+#Consts
+AWSHOST="ec2-18-209-61-214.compute-1.amazonaws.com"
+AWSUSER="push-web"
+LOCALDIR="web-content"
+
+# Change to working directory
+cd ~root/cron-lab
+
+# Rsync
+#rsync -e "ssh -i keys/pull-log" -av "${AWSUSER}@${AWSHOST}:" ${LOCALDIR}
+rsync -e "ssh -i keys/push-web" -vraO --no-perms --delete --chmod=660 --chown=push-web:www-data "${LOCALDIR}/" "${AWSUSER}@${AWSHOST}":
+
+# Write an entry to syslog
+logger -t $0 "Web content pushed to ${AWSHOST}"
+
+#Write email here
+APPPW="NOTSET"
+
+msg=$(echo -e "Web content pushed to ${AWSHOST}")
+echo $msg | s-nail -v -s "XYZ Hourly Tasks" \
+-S smtp-use-starttls \
+-S ssl-verify-ignore \
+-S smtp=smtp://smtp.gmail.com:587 \
+-S from="nicholas.preis@mymail.champlain.edu" \
+-S smtp-auth-user="nicholas.preis@mymail.champlain.edu" \
+-S smtp-auth-password="${APPPW}" \
+-S ssl-verify=ignore \
+"nicholas.preis@mymail.champlain.edu" &> /dev/null
