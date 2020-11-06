@@ -9,3 +9,10 @@ void vecCout(vector <string> strVec)
     }
     cout << "\n";
 }
+
+void getRandStr(vector <string> strVec, int randStr)
+{
+    cout << "calling getRandStr" << endl;
+    cout << strVec.at(randStr);
+    cout << endl;
+}
