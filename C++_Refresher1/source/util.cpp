@@ -1,4 +1,5 @@
 #include"util.h"
+#include <bits/stdc++.h>
 
 void strVecCout(vector <string> strVec)
 {
@@ -37,10 +38,10 @@ void calculatingDoubles(vector <double> dblVec)
     {
         sum += d;
     }
-    cout << "Sum: " << sum << endl;
+    cout << "Sum: " << sum << "\n";
     
     avg = sum / dblVec.size();
-    cout << "Avg: " << avg << endl;
+    cout << "Avg: " << avg << "\n";
 
     for(double d : dblVec)
     {
@@ -49,5 +50,26 @@ void calculatingDoubles(vector <double> dblVec)
             low = d;
         }        
     }
-    cout << "Low: " << low << endl;
+    cout << "Low: " << low << "\n";
+}
+
+void camelCaseConv(string str)
+{
+    cout << "Calling camelCase with: " << str << "\n";
+
+    int n = str.length();
+    int current = 0;
+
+    for (int i = 0; i < n; i++)
+    {
+        if(str[i] == ' ')
+        {
+            str[i + 1] = toupper(str[i + 1]);
+        }
+        else
+        {
+            str[current++] = str[i];
+        }
+    }
+    cout << "Message after camelCase: " << str.substr(0, current) << endl;
 }

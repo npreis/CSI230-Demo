@@ -35,5 +35,8 @@ int main()
     dblVecCout(dblVec);
     calculatingDoubles(dblVec);
 
+    string camelCase = "A little bird with a yellow bill";
+    camelCaseConv(camelCase);
+
     return 0;
 }
