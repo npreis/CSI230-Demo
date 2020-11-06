@@ -6,5 +6,6 @@
 
 using namespace std;
 
-void vecCout(vector <string> strVec);
+void strVecCout(vector <string> strVec);
 void getRandStr(vector <string> strVec, int randStr);
+void dblVecCout(vector <double> dblVec);

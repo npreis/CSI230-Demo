@@ -1,6 +1,6 @@
 #include"util.h"
 
-void vecCout(vector <string> strVec)
+void strVecCout(vector <string> strVec)
 {
     cout << "Dumping the vector of 6 elements: ";
     for(string s : strVec)
@@ -14,5 +14,15 @@ void getRandStr(vector <string> strVec, int randStr)
 {
     cout << "calling getRandStr" << endl;
     cout << strVec.at(randStr);
-    cout << endl;
+    cout << "\n";
+}
+
+void dblVecCout(vector <double> dblVec)
+{
+    cout << "Dumping a vector of doubles" << endl;
+    for(double d : dblVec)
+    {
+        cout << d << " ";
+    }
+    cout << "\n";
 }
