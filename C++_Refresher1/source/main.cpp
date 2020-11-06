@@ -33,6 +33,7 @@ int main()
     dblVec.push_back(30);
 
     dblVecCout(dblVec);
+    calculatingDoubles(dblVec);
 
     return 0;
 }

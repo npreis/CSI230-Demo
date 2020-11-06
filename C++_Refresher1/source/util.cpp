@@ -26,3 +26,28 @@ void dblVecCout(vector <double> dblVec)
     }
     cout << "\n";
 }
+
+void calculatingDoubles(vector <double> dblVec)
+{
+    double sum = 0;
+    double avg;
+    double low = dblVec.front();
+
+    for(double d : dblVec)
+    {
+        sum += d;
+    }
+    cout << "Sum: " << sum << endl;
+    
+    avg = sum / dblVec.size();
+    cout << "Avg: " << avg << endl;
+
+    for(double d : dblVec)
+    {
+        if(d < low)
+        {
+            low = d;
+        }        
+    }
+    cout << "Low: " << low << endl;
+}
