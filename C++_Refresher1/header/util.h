@@ -1,3 +1,10 @@
+/*
+File: C++_Refresher1
+Brief: Practicing C++ vectors and functions
+Author: Nicholas Preis
+Assignment: Lab 10.1
+Date: 11/8/20
+*/
 #pragma once
 
 #include<iostream>
