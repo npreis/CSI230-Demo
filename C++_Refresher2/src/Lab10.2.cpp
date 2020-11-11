@@ -2,25 +2,26 @@
 #include<pwd.h>
 #include<unistd.h>
 #include<libgen.h>
+#include"logger.h"
 
 using namespace std;
 
 int main(int argc, char* argv[])
 {
     int opt{};
-    bool countFlag{false};
+    bool kmlFlag{false};
     bool logFlag{false};
-    int count{};
     string logValue{};
+    string kmlValue;
     bool optErr = true;
 
-    while((opt = getopt(argc, argv, "c:l:")) != EOF)
+    while((opt = getopt(argc, argv, "k:l:")) != EOF)
     {
         switch(opt)
         {
-            case 'c':
-                countFlag = true;
-                count = atoi(optarg);
+            case 'k':
+                kmlFlag = true;
+                kmlValue = optarg;
                 break;
 
             case 'l':
@@ -34,19 +35,33 @@ int main(int argc, char* argv[])
         }
     }
 
-    cout << "Flags - countFlag: " << countFlag << " logFlag: " << logFlag << endl;
-
-    if(countFlag && logFlag)
+    if(kmlFlag && logFlag)
     {
         cout << "Flags are set!" << endl;
-        if(logValue.empty() || count == 0)
+        if(logValue.empty() || kmlValue.empty())
         {
             optErr = true;
             cout << "Option arguments aren't set." << endl;
         }
         else
         {
-            optErr = false;
+            ofstream flog;
+            flog.open(logValue, ios_base::app);
+            if(flog)
+            {
+                std::string programName = basename(argv[0]);
+                std::string msg = "Flags - kmlFlag: " + kmlFlag;
+                msg += " logFlag: " + logFlag;
+                log(msg, programName, flog);
+                optErr = false;
+                flog.close();
+            }
+            else
+            {
+                cout << "Couldn't open " << logValue << endl;
+                optErr = true;
+            }
+            
         }
     }
     else
@@ -60,7 +75,6 @@ int main(int argc, char* argv[])
         return EXIT_FAILURE;
     }
     
-    cout << "The count is: " << count << " and the logFile is: " << logValue << endl;
     cout << "optErr: " << optErr << endl;
 
     return EXIT_SUCCESS;
