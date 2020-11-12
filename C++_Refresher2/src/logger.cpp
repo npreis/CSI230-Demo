@@ -28,12 +28,10 @@ bool log(std::string msg, std::string programName, std::ofstream& logFile)
     if(logFile)
     {
         logFile << strTime << strHostName << " " << programName << "[" << pid << "]: " << msg << std::endl;
-        std::cout << "true" << std::endl;
         return true;
     }
     else
     {
-        std::cout << "false" << std::endl;
         return false;
     }
     

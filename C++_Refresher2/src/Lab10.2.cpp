@@ -3,6 +3,7 @@
 #include<unistd.h>
 #include<libgen.h>
 #include"logger.h"
+#include"earth_utils.h"
 
 using namespace std;
 
@@ -55,6 +56,29 @@ int main(int argc, char* argv[])
                 log(msg, programName, flog);
                 optErr = false;
                 flog.close();
+
+                ifstream inFile;
+                inFile.open(kmlValue);
+                if(inFile)
+                {
+                    int recordCount = processCSV(inFile, kmlValue + ".kml");
+                    inFile.close();
+                    if(recordCount)
+                    {
+                        cout << recordCount << " records counted." << endl;
+                        optErr = false;
+                    }
+                    else
+                    {
+                        optErr = true;
+                    }
+                    
+                }
+                else
+                {
+                    optErr = true;
+                }
+                
             }
             else
             {
