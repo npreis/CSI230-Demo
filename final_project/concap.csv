@@ -1,0 +1,20 @@
+WeaponName,MinLevel,MinDamage
+Stick,1,2
+Broken Sword,2,3
+Dagger,4,6
+Sword,6,9
+Axe,8,12
+Spear,10,16
+Machete,12,20
+Club,15,25
+Mace,20,40
+Halberd,25,65
+Bastard Sword,30,90
+Katana,35,125
+Flail,40,165
+Morningstar,45,200
+Masamune,50,250
+War Hammer,55,300
+Gladius,60,360
+Zweihander,65,450
+Omega Weapon,70,600
