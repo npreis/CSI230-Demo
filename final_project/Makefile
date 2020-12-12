@@ -7,8 +7,8 @@ INCLUDE := include
 LIB := lib
 
 LIBRARIES   :=
-EXECUTABLE  := 
-SO_NAME := 
+EXECUTABLE  := main
+SO_NAME := weapons
 LIB_INSTALL_DIR := /usr/lib/x86_64-linux-gnu
 BIN_INSTALL_DIR := /usr/local/bin
 
