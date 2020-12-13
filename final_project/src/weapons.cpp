@@ -86,3 +86,69 @@ string getWeapon(std::ifstream& inFile, string mWeaponName)
         return "";
     }
 }
+
+string getLevel(std::ifstream& inFile, string mWeaponName)
+{
+    string weaponName;
+    string minLevel, minDamage;
+    string strLine;
+
+    if(!inFile)
+    {
+        cout << "File doesn't exist." << endl;
+        return "";
+    }
+    else
+    {
+        getline(inFile, strLine);
+
+        while(getline(inFile, strLine))
+        {
+            std::stringstream s_stream(strLine);
+            getline(s_stream, weaponName, ',');
+            getline(s_stream, minLevel, ',');
+            getline(s_stream, minDamage, ',');
+
+            if(weaponName == mWeaponName)
+            {
+                cout << "Required Level: " << minLevel << endl;
+                return minLevel;
+            }
+        }
+        cout << "Weapon doesn't exist." << endl;
+        return "";
+    }
+}
+
+string getDamage(std::ifstream& inFile, string mWeaponName)
+{
+    string weaponName;
+    string minLevel, minDamage;
+    string strLine;
+
+    if(!inFile)
+    {
+        cout << "File doesn't exist." << endl;
+        return "";
+    }
+    else
+    {
+        getline(inFile, strLine);
+
+        while(getline(inFile, strLine))
+        {
+            std::stringstream s_stream(strLine);
+            getline(s_stream, weaponName, ',');
+            getline(s_stream, minLevel, ',');
+            getline(s_stream, minDamage, ',');
+
+            if(weaponName == mWeaponName)
+            {
+                cout << "Minimum Damage: " << minDamage << endl;
+                return minDamage;
+            }
+        }
+        cout << "Weapon doesn't exist." << endl;
+        return "";
+    }
+}

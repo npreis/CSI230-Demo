@@ -13,6 +13,8 @@ int main(int argc, char* argv[])
     string kmlValue;
     bool optErr = true;
     string weaponName;
+    string minLevel;
+    string minDamage;
     int currentLevel;
     int totalDamage;
 
@@ -51,8 +53,16 @@ int main(int argc, char* argv[])
         weaponName = getWeapon(inFile, weaponName);
         inFile.close();
 
+        inFile.open(kmlValue);
+        minLevel = getLevel(inFile, weaponName);
+        inFile.close();
+
         if(canWield(25, currentLevel) && weaponName != "")
         {
+            inFile.open(kmlValue);
+            minDamage = getDamage(inFile, weaponName);
+            inFile.close();
+
             totalDamage = damageOutput(25, currentLevel, 95) * damageMulti();
             cout << "The " << weaponName << "'s current damage output is: " << totalDamage << endl;
 
