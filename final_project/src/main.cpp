@@ -45,8 +45,12 @@ int main(int argc, char* argv[])
         if(canWield(25, currentLevel))
         {
             totalDamage = damageOutput(25, currentLevel, 95) * damageMulti();
-            cout << "Current damage output is: " 
-            << totalDamage << endl;
+            cout << "Current damage output is: " << totalDamage << endl;
+
+            ifstream inFile;
+            inFile.open(kmlValue);
+            readData(inFile);
+            inFile.close();
 
             break;
         }

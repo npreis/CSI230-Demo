@@ -25,3 +25,34 @@ int damageMulti()
     boost::random::uniform_int_distribution<> dist(1, 5);
     return dist(gen);
 }
+
+void readData(std::ifstream& inFile)
+{
+    string weaponName;
+    string minLevel, minDamage;
+    string strLine;
+    int recordCount{};
+
+    if(!inFile)
+    {
+        cout << "File doesn't exist." << endl;
+        return;
+    }
+    else
+    {
+        getline(inFile, strLine);
+
+            while(getline(inFile, strLine))
+            {
+                std::stringstream s_stream(strLine);
+                getline(s_stream, weaponName, ',');
+                getline(s_stream, minLevel, ',');
+                getline(s_stream, minDamage, ',');
+
+                cout << weaponName << ", " << minLevel << ", " << minDamage << endl;
+
+                recordCount ++;
+            }
+    }
+    
+}
