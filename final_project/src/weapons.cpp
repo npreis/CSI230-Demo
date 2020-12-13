@@ -31,7 +31,6 @@ void readData(std::ifstream& inFile)
     string weaponName;
     string minLevel, minDamage;
     string strLine;
-    int recordCount{};
 
     if(!inFile)
     {
@@ -42,17 +41,48 @@ void readData(std::ifstream& inFile)
     {
         getline(inFile, strLine);
 
-            while(getline(inFile, strLine))
-            {
-                std::stringstream s_stream(strLine);
-                getline(s_stream, weaponName, ',');
-                getline(s_stream, minLevel, ',');
-                getline(s_stream, minDamage, ',');
+        while(getline(inFile, strLine))
+        {
+            std::stringstream s_stream(strLine);
+            getline(s_stream, weaponName, ',');
+            getline(s_stream, minLevel, ',');
+            getline(s_stream, minDamage, ',');
 
-                cout << weaponName << ", " << minLevel << ", " << minDamage << endl;
-
-                recordCount ++;
-            }
+            cout << weaponName << ", " << minLevel << ", " << minDamage << endl;
+        }
     }
     
+}
+
+string getWeapon(std::ifstream& inFile, string mWeaponName)
+{
+    string weaponName;
+    string minLevel, minDamage;
+    string strLine;
+
+    if(!inFile)
+    {
+        cout << "File doesn't exist." << endl;
+        return "";
+    }
+    else
+    {
+        getline(inFile, strLine);
+
+        while(getline(inFile, strLine))
+        {
+            std::stringstream s_stream(strLine);
+            getline(s_stream, weaponName, ',');
+            getline(s_stream, minLevel, ',');
+            getline(s_stream, minDamage, ',');
+
+            if(weaponName == mWeaponName)
+            {
+                cout << weaponName << endl;
+                return weaponName;
+            }
+        }
+        cout << "Weapon doesn't exist." << endl;
+        return "";
+    }
 }

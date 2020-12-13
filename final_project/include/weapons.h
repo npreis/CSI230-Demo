@@ -13,3 +13,4 @@ bool canWield(int minLevel, int currentLevel);
 int damageOutput(int minLevel, int currentLevel, int minDamage);
 int damageMulti();
 void readData(std::ifstream& inFile);
+string getWeapon(std::ifstream& inFile, string mWeaponName);

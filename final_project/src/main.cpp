@@ -46,15 +46,15 @@ int main(int argc, char* argv[])
         cout << "What weapon are you using? ";
         cin >> weaponName;
 
+        ifstream inFile;
+        inFile.open(kmlValue);
+        getWeapon(inFile, weaponName);
+        inFile.close();
+
         if(canWield(25, currentLevel))
         {
             totalDamage = damageOutput(25, currentLevel, 95) * damageMulti();
             cout << "The " << weaponName << "'s current damage output is: " << totalDamage << endl;
-
-            ifstream inFile;
-            inFile.open(kmlValue);
-            readData(inFile);
-            inFile.close();
 
             break;
         }
