@@ -16,3 +16,12 @@ int damageOutput(int minLevel, int currentLevel, int minDamage)
 
     return totalDamage;
 }
+
+int damageMulti()
+{
+    //std::time(0);
+
+    boost::random::random_device gen;
+    boost::random::uniform_int_distribution<> dist(1, 5);
+    return dist(gen);
+}
