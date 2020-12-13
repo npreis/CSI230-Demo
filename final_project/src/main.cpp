@@ -48,17 +48,17 @@ int main(int argc, char* argv[])
 
         ifstream inFile;
         inFile.open(kmlValue);
-        getWeapon(inFile, weaponName);
+        weaponName = getWeapon(inFile, weaponName);
         inFile.close();
 
-        if(canWield(25, currentLevel))
+        if(canWield(25, currentLevel) && weaponName != "")
         {
             totalDamage = damageOutput(25, currentLevel, 95) * damageMulti();
             cout << "The " << weaponName << "'s current damage output is: " << totalDamage << endl;
 
             break;
         }
-        cout << "You're too low level." << endl;
+        cout << "Either the weapon doesn't exist, or you're too low level." << endl;
         break;
     }
     return 0;
