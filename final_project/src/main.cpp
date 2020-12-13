@@ -12,6 +12,7 @@ int main(int argc, char* argv[])
     string logValue{};
     string kmlValue;
     bool optErr = true;
+    string weaponName;
     int currentLevel;
     int totalDamage;
 
@@ -42,10 +43,13 @@ int main(int argc, char* argv[])
 
     while(1)
     {
+        cout << "What weapon are you using? ";
+        cin >> weaponName;
+
         if(canWield(25, currentLevel))
         {
             totalDamage = damageOutput(25, currentLevel, 95) * damageMulti();
-            cout << "Current damage output is: " << totalDamage << endl;
+            cout << "The " << weaponName << "'s current damage output is: " << totalDamage << endl;
 
             ifstream inFile;
             inFile.open(kmlValue);
