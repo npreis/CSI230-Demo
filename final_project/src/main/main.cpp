@@ -1,6 +1,7 @@
 #include<iostream>
 #include<ctime>
 #include<unistd.h>
+#include"weapons.h"
 
 using namespace std;
 
@@ -14,7 +15,7 @@ int main(int argc, char* argv[])
     bool optErr = true;
     int currentLevel;
 
-    while((opt = getopt(argc, argv, "k:l:c:")) != EOF)
+    while((opt = getopt(argc, argv, "k:l:")) != EOF)
     {
         switch(opt)
         {
@@ -28,18 +29,27 @@ int main(int argc, char* argv[])
                 logValue = optarg;
                 break;
 
-            case 'c':
-                currentLevel = (int)optarg;
-                break;
-
             default:
                 optErr = true;
                 break;
         }
     }
+
+    cout << "Insert your current level: ";
+    cin >> currentLevel;
+
+    cout << endl;
+
     while(1)
     {
-        cout << "hello" << endl;
+        if(canWield(25, currentLevel))
+        {
+            cout << "Current damage output is: " 
+            << damageOutput(25, currentLevel, 95) << endl;
+
+            break;
+        }
+        cout << "You're too low level." << endl;
         break;
     }
     return 0;
