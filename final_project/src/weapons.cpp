@@ -1,3 +1,14 @@
+/*
+File: weapons.h
+Brief: Retrieves weapon data
+Author: Nicholas Preis
+Assignment: Final Project
+Date: 12/13/20
+Credits:
+    https://www.geeksforgeeks.org/converting-strings-numbers-cc/
+    https://www.boost.org/doc/libs/1_71_0/doc/html/boost_random/tutorial.html
+*/
+
 #include "weapons.h"
 
 bool canWield(int minLevel, int currentLevel)
@@ -148,4 +159,18 @@ int getDamage(std::ifstream& inFile, string mWeaponName)
         }
         return 0;
     }
+}
+
+bool logData(std::ofstream& outFile, string message)
+{
+    if(outFile)
+    {
+        outFile << message << endl;
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+    
 }
