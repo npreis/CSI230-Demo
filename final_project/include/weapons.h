@@ -14,5 +14,5 @@ int damageOutput(int minLevel, int currentLevel, int minDamage);
 int damageMulti();
 void readData(std::ifstream& inFile);
 string getWeapon(std::ifstream& inFile, string mWeaponName);
-string getLevel(std::ifstream& inFile, string mWeaponName);
-string getDamage(std::ifstream& inFile, string mWeaponName);
+int getLevel(std::ifstream& inFile, string mWeaponName);
+int getDamage(std::ifstream& inFile, string mWeaponName);

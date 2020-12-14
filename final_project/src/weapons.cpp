@@ -78,7 +78,6 @@ string getWeapon(std::ifstream& inFile, string mWeaponName)
 
             if(weaponName == mWeaponName)
             {
-                cout << weaponName << endl;
                 return weaponName;
             }
         }
@@ -87,7 +86,7 @@ string getWeapon(std::ifstream& inFile, string mWeaponName)
     }
 }
 
-string getLevel(std::ifstream& inFile, string mWeaponName)
+int getLevel(std::ifstream& inFile, string mWeaponName)
 {
     string weaponName;
     string minLevel, minDamage;
@@ -96,7 +95,7 @@ string getLevel(std::ifstream& inFile, string mWeaponName)
     if(!inFile)
     {
         cout << "File doesn't exist." << endl;
-        return "";
+        return 0;
     }
     else
     {
@@ -111,16 +110,15 @@ string getLevel(std::ifstream& inFile, string mWeaponName)
 
             if(weaponName == mWeaponName)
             {
-                cout << "Required Level: " << minLevel << endl;
-                return minLevel;
+                int level = stoi(minLevel);
+                return level;
             }
         }
-        cout << "Weapon doesn't exist." << endl;
-        return "";
+        return 0;
     }
 }
 
-string getDamage(std::ifstream& inFile, string mWeaponName)
+int getDamage(std::ifstream& inFile, string mWeaponName)
 {
     string weaponName;
     string minLevel, minDamage;
@@ -129,7 +127,7 @@ string getDamage(std::ifstream& inFile, string mWeaponName)
     if(!inFile)
     {
         cout << "File doesn't exist." << endl;
-        return "";
+        return 0;
     }
     else
     {
@@ -144,11 +142,10 @@ string getDamage(std::ifstream& inFile, string mWeaponName)
 
             if(weaponName == mWeaponName)
             {
-                cout << "Minimum Damage: " << minDamage << endl;
-                return minDamage;
+                int damage = stoi(minDamage);
+                return damage;
             }
         }
-        cout << "Weapon doesn't exist." << endl;
-        return "";
+        return 0;
     }
 }
